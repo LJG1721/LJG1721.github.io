@@ -1,0 +1,62 @@
+:root {
+  --bg: #f3f5f7;
+  --card: #ffffff;
+  --ink: #14202b;
+  --muted: #5b6672;
+  --line: #e2e6ea;
+  --accent: #d6452f;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101317;
+    --card: #1b2026;
+    --ink: #eef1f4;
+    --muted: #a3acb6;
+    --line: #2a3139;
+    --accent: #ff7a5c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+header { margin-bottom: 24px; }
+.brand { color: var(--accent); font-weight: 700; text-decoration: none; font-size: 15px; }
+h1 { font-size: 26px; line-height: 1.35; margin: 8px 0 4px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+p, li { color: var(--ink); }
+.muted { color: var(--muted); font-size: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+a { color: var(--accent); }
+nav.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+nav.links a {
+  display: inline-block; padding: 8px 14px; border-radius: 999px;
+  background: var(--card); border: 1px solid var(--line); text-decoration: none; font-weight: 600;
+}
+ol, ul { padding-left: 22px; }
+footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+@media (max-width: 520px) {
+  table, thead, tbody, tr, th, td { display: block; }
+  th { border-bottom: none; padding-bottom: 0; }
+  /* 폰에서는 칸이 세로로 쌓이니 머리줄(구분 · 항목 · 언제)은 숨기고, 줄마다 첫 칸을 제목처럼 보여 준다 */
+  tr:has(> th:nth-child(2)) { display: none; }
+  tr > td:first-child { font-weight: 700; padding-bottom: 0; border-bottom: none; }
+  tr > th + td, tr > td + td { padding-top: 4px; }
+  tr > td:last-child { color: var(--muted); font-size: 14px; }
+}
+h3 { font-size: 16px; margin: 20px 0 4px; }
+.credit { display: flex; gap: 12px; align-items: flex-start; }
+.credit .badge {
+  flex: none; padding: 4px 10px; border-radius: 8px; font-weight: 700; font-size: 13px;
+  color: #fff; background: #0d253f; letter-spacing: 0.5px;
+}
